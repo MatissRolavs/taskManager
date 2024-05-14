@@ -1,5 +1,5 @@
 <?php
 
-require "../views/index.view.php";
+require "../app/views/index.view.php";
 
 ?>

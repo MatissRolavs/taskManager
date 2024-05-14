@@ -1,6 +1,6 @@
 <?php 
 return [
-    "/" => "../controllers/index.php",
+    "/" => "../app/controllers/index.php",
 
 
 ];
