@@ -1,7 +1,7 @@
 <?php
 return [
     "host" => "localhost",
-    "dbname" => "biblioteka",
+    "dbname" => "taskManager",
     "user" => "root",
     "password" => "root",
     "charset" => "utf8mb4"
