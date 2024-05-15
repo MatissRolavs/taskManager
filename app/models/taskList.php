@@ -13,15 +13,17 @@ class TaskManager {
 
     // Create task
     public function create($title, $description, $due, $completed, $user_id){
-        $this->db->query('INSERT INTO tasks (title, description, due, completed, user_id) VALUES (:title, :description, :due, :completed, :user_id)');
-        $this->db->bind(':title', $title);
-        $this->db->bind(':description', $description);
-        $this->db->bind(':due', $due);
-        $this->db->bind(':completed', $completed);
-        $this->db->bind(':user_id', $user_id);
+        $query = 'INSERT INTO tasks (title, description, due, completed, user_id) VALUES (:title, :description, :due, :completed, :user_id)';
+        $params= [
+            ':title' => $title,
+            ':description' => $description,
+            ':due' => $due,
+            ':completed' => $completed,
+            ':user_id' => $user_id
+        ];
 
         // Execute
-        if($this->db->execute()){
+        if($this->db->execute($query, $params)){
             return true;
         } else {
             return false;
@@ -30,11 +32,11 @@ class TaskManager {
 
     // Delete task
     public function delete($id){
-        $this->db->query('DELETE FROM tasks WHERE id = :id');
-        $this->db->bind(':id', $id);
+        $query = 'DELETE FROM tasks WHERE id = :id';
+        $params = [':id' => $id];
 
         // Execute
-        if($this->db->execute()){
+        if($this->db->execute($query, $params)){
             return true;
         } else {
             return false;
@@ -43,15 +45,17 @@ class TaskManager {
 
     // Edit task
     public function edit($id, $title, $description, $due, $completed){
-        $this->db->query('UPDATE tasks SET title = :title, description = :description, due = :due, completed = :completed WHERE id = :id');
-        $this->db->bind(':id', $id);
-        $this->db->bind(':title', $title);
-        $this->db->bind(':description', $description);
-        $this->db->bind(':due', $due);
-        $this->db->bind(':completed', $completed);
+        $query = 'UPDATE tasks SET title = :title, description = :description, due = :due, completed = :completed WHERE id = :id';
+        $params= [
+            ':id' => $id,
+            ':title' => $title,
+            ':description' => $description,
+            ':due' => $due,
+            ':completed' => $completed
+        ];
 
         // Execute
-        if($this->db->execute()){
+        if($this->db->execute($query, $params)){
             return true;
         } else {
             return false;
@@ -60,19 +64,17 @@ class TaskManager {
 
     // Get task by ID
     public function getTaskById($id){
-        $this->db->query('SELECT * FROM tasks WHERE id = :id');
-        $this->db->bind(':id', $id);
-        $result = $this->db->single();
+        $query = 'SELECT * FROM tasks WHERE id = :id';
+        $params = [':id' => $id];
+        $result = $this->db->single($query, $params);
         return $result;
     }
 
     // Get all tasks
     public function getAll(){
-        $this->db->query('SELECT * FROM tasks');
-        $results = $this->db->resultSet();
-        return $results;
+        $query = 'SELECT * FROM tasks';
+        $params = [];
+        $tasks = $this->db->execute($query, $params)->fetchAll();
+        return $tasks;
     }
 }
-
-
-
