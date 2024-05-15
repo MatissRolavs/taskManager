@@ -1,32 +1,22 @@
 <?php
-require "Database.php";
-$config = require "config.php";
-require "Validator.php";
+guest();
+require "../app/models/User.php";
 
-// Create Database instance
-$db = new Database($config);
-
-// Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
+
     $username = $_POST['username'];
-    $gmail = $_POST['gmail'];
     $password = $_POST['password'];
 
-    // Hash the password for security
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $user = new User();
 
-    // Insert user data into database
-    $sql = "INSERT INTO `user` (`username`, `gmail`, `password`) VALUES ('$username', '$gmail', '$hashed_password')";
-
-    // Execute SQL query
-    $result = $db->execute($sql);
+    $result = $user->register($username,$password);
 
     if ($result) {
-        echo "Registration successful!";
+        header("Location: /login");
+        die();
     } else {
-        echo "Error: Registration failed.";
+        
     }
 }
-require "views/auth/register.view.php";
+require "../app/views/auth/register.view.php";
 ?>

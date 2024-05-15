@@ -4,34 +4,13 @@ namespace App\Validators;
 
 class Validator
 {
-    public static function validatePassword($password)
-    {
-        // Password must be at least 8 characters long
-        if (strlen($password) < 8) {
-            return false;
-        }
+    static public function string($data, $min = 0 ,$max = INF) {
 
-        // Password must contain at least one uppercase letter
-        if (!preg_match('/[A-Z]/', $password)) {
-            return false;
-        }
+        $data = trim($data);
 
-        // Password must contain at least one lowercase letter
-        if (!preg_match('/[a-z]/', $password)) {
-            return false;
-        }
-
-        // Password must contain at least one digit
-        if (!preg_match('/[0-9]/', $password)) {
-            return false;
-        }
-
-        // Password must contain at least one special character
-        if (!preg_match('/[!@#$%^&*()\-_=+{};:,<.>ยง~]/', $password)) {
-            return false;
-        }
-
-        return true;
+        return  is_string($data) 
+                && strlen($data) >= $min 
+                && strlen($data) <= $max;
     }
 
     public static function validateEmail($email)

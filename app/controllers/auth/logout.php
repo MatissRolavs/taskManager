@@ -1,18 +1,13 @@
 <?php
-
-if(isset($_SESSION['user_id'])) {
-    // Unset all of the session variables
-    $_SESSION = array();
-
-    // Destroy the session
+auth();
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    $_SESSION = [];
     session_destroy();
-
-    // Redirect to the login page or any other page you desire after logout
-    header("Location: login.php");
-    exit;
-} else {
-    // If the user is not logged in, redirect them to the login page
-    header("Location: login.php");
-    exit;
+    $params = session_get_cookie_params();
+    setcookie(session_name(), "", time() - 42000,
+        $params["path"], $params["domain"],
+        $params["secure"], $params["httponly"]
+    );
 }
-?>
+header("Location: /login");
+die();

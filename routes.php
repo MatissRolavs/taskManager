@@ -1,6 +1,8 @@
 <?php 
 return [
     "/" => "../app/controllers/tasks/index.php",
+    "/register" => "../app/controllers/auth/register.php",
+    "/login" => "../app/controllers/auth/login.php",
     "/logout" => "../app/controllers/auth/logout.php",
     "/login" => "../app/controllers/auth/login.php",
     "/reset" => "../app/controllers/auth/resetpass.php",
