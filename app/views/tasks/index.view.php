@@ -44,14 +44,26 @@ require "../app/views/components/navbar.php";
 function updateTask(checkbox, taskId) {
   let taskItem = checkbox.closest('.task-item');
   let completed = checkbox.checked ? 1 : 0;
-  if (checkbox.checked) {
-    taskItem.style.backgroundColor = 'green';
-  } else {
-    taskItem.style.backgroundColor = '#FF0800';
-  }
+  taskItem.style.backgroundColor = checkbox.checked ? 'green' : '#FF0800';
 
-  
-
+  fetch('/updateTask', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ id: taskId, completed: completed }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      console.log('Task updated successfully');
+    } else {
+      console.error('Failed to update task');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
 }
 
 </script>
