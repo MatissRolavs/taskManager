@@ -15,6 +15,7 @@
             </div>
             <button type="submit" class="w-full px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Login</button>
         </form>
+        <a href="/register">Register</a>
     </div>
 </body>
 <?php require "../app/views/components/footer.php" ?>

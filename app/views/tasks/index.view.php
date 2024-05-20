@@ -12,10 +12,15 @@ $tasks = $taskManager->getAll();
 require "../app/views/components/head.php";
 require "../app/views/components/navbar.php";
 ?>
+<form action="/logout" method="POST">
+  <button class="logout-button">Logout</button>
+</form>
 
-<div class="container mt-8 mx-auto px-4">
-  <h1 class="mb-8 text-4xl text-center">Task list</h1>
-  <div class="flex flex-wrap -mx-2">
+
+<div class="container mt-8 mx-auto px-4"> <!-- Added mx-auto for horizontal centering and px-4 for horizontal padding -->
+  <img src="../public/shit.png" alt="mr poopie" width="600" height="600">
+  <h1 class="mb-8 text-4xl text-center">Task list</h1> <!-- Added text-center for centering -->
+  <div class="flex flex-wrap -mx-2"> <!-- Added flex-wrap to allow containers to wrap and -mx-2 to add horizontal margin between containers -->
     <?php foreach ($tasks as $task) { ?>
       <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4">
         <div class="task-item border border-gray-300 rounded-md p-4 flex flex-col justify-between" style="background-color: <?= $task['completed'] ? 'green' : 'red'; ?>">
