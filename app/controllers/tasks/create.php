@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST["title"];
     $description = $_POST["description"];
     $due = $_POST["due"];
-    $completed = isset($_POST["completed"]) ? 1 : 0;
+    $completed = 0;
 
     // For demonstration purposes, assuming a default user ID (replace with your logic)
     $user_id = $_SESSION["userID"]; // You need to replace this with the actual user ID
