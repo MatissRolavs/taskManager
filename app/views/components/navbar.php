@@ -1,7 +1,7 @@
 <div class="flex">
-  <nav class="bg-gray-800 py-4 w-64 min-h-screen">
-    <div class="px-4">
-      <ul class="space-y-2">
+  <nav class="bg-gray-800 py-4 w-64 min-h-screen flex flex-col justify-between">
+    <div class="px-4 flex flex-col h-full justify-between">
+      <ul class="space-y-2 flex flex-col h-full justify-between">
         <li>
           <a href="/" class="text-white hover:text-gray-300">Home</a>
         </li>
@@ -14,5 +14,3 @@
       </ul>
     </div>
   </nav>
-  
-
