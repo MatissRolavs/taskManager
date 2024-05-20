@@ -76,7 +76,15 @@ class TaskManager {
         $tasks = $this->db->execute($query, $params)->fetchAll();
         return $tasks;
     }
-    
+    public function updateTaskCompletion($taskId, $completed) {
+        $query = "UPDATE tasks SET completed = :completed WHERE id = :id";
+        $params = [
+            ':completed' => $completed,
+            ':id' => $taskId
+        ];
+
+        return $this->db->execute($query, $params);
+    }
     
 }
 ?>

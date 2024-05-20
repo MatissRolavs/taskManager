@@ -7,6 +7,7 @@
       <li>
         <a href="/create" class="text-white hover:text-gray-300">Create Task</a>
       </li>
+      <a href="/calander" class="text-white hover:text-gray-300">Calendar</a>
     </ul>
   </div>
 </nav>

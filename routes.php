@@ -12,5 +12,6 @@ return [
     "/delete" => "../app/controllers/tasks/delete.php",
     "/show" => "../app/controllers/tasks/show.php",
     "/calander" => "../app/controllers/tasks/calander.php",
+    "/updateTask" => "../app/controllers/tasks/updateTask.php",
 ];
 ?>
