@@ -11,6 +11,5 @@ return [
     "/edit" => "../app/controllers/tasks/edit.php",
     "/delete" => "../app/controllers/tasks/delete.php",
     "/show" => "../app/controllers/tasks/show.php",
-   
 ];
 ?>
