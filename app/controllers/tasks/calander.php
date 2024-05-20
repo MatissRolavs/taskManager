@@ -6,7 +6,7 @@ $config = require "../config.php";
 $db = new Database($config);
 
 // Fetch tasks from the database
-$sql = "SELECT title, description, due, completed FROM tasks";
+$sql = "SELECT id, title, description, due, completed FROM tasks";
 $query = $db->execute($sql, []);
 $tasks = $query->fetchAll();
 
@@ -55,7 +55,7 @@ function build_calendar($month, $year, $tasks) {
 
     // If the first day of the month is not Sunday, create blank cells before the first day
     if ($dayOfWeek > 0) {
-        $calendar .= "<td colspan='$dayOfWeek'>&nbsp;</td>";
+        $calendar .= "<td colspan='$dayOfWeek'> </td>";
     }
 
     // Loop through all the days of the month
@@ -76,7 +76,7 @@ function build_calendar($month, $year, $tasks) {
         if (isset($task_dates[$currentDate])) {
             foreach ($task_dates[$currentDate] as $task) {
                 $taskClass = $task['completed'] ? 'completed' : 'not-completed';
-                $calendar .= "<div class='task $taskClass'>{$task['title']}</div>";
+                $calendar .= "<div class='task $taskClass'><a href='show?id={$task['id']}'>{$task['title']}</a></div>";
             }
         }
 
@@ -90,7 +90,7 @@ function build_calendar($month, $year, $tasks) {
     // Complete the row of the last week in the month if necessary
     if ($dayOfWeek != 7) {
         $remainingDays = 7 - $dayOfWeek;
-        $calendar .= "<td colspan='$remainingDays'>&nbsp;</td>";
+        $calendar .= "<td colspan='$remainingDays'> </td>";
     }
 
     $calendar .= "</tr>";
