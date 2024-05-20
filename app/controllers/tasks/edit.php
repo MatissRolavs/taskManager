@@ -1,4 +1,5 @@
 <?php
+auth();
 // Include the TaskManager class
 require_once '../app/models/taskList.php';
 

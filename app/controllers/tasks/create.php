@@ -1,5 +1,5 @@
 <?php
-
+auth();
 
 require_once '../app/models/taskList.php';
 
@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $completed = isset($_POST["completed"]) ? 1 : 0;
 
     // For demonstration purposes, assuming a default user ID (replace with your logic)
-    $user_id = 1; // You need to replace this with the actual user ID
+    $user_id = $_SESSION["userID"]; // You need to replace this with the actual user ID
 
     // Create a new TaskManager instance
     $taskManager = new TaskManager();
