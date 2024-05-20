@@ -7,9 +7,10 @@ require_once '../app/models/taskList.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get form data
     $title = $_POST["title"];
-    $description = $_POST["description"];
-    $due = $_POST["due"];
-    $completed = isset($_POST["completed"]) ? 1 : 0;
+$description = $_POST["description"];
+$due = $_POST["due"];
+$completed = 0; // Set to 0 by default
+
 
     // For demonstration purposes, assuming a default user ID (replace with your logic)
     $user_id = 1; // You need to replace this with the actual user ID
