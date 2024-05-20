@@ -1,6 +1,5 @@
-<?php 
+<?php
 
-/// Include the Database class
 require_once '../app/core/Database.php';
 
 class TaskManager {
@@ -78,3 +77,4 @@ class TaskManager {
         return $tasks;
     }
 }
+?>
