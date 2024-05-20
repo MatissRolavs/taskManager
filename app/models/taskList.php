@@ -1,6 +1,5 @@
-<?php 
+<?php
 
-/// Include the Database class
 require_once '../app/core/Database.php';
 
 class TaskManager {
@@ -66,7 +65,7 @@ class TaskManager {
     public function getTaskById($id){
         $query = 'SELECT * FROM tasks WHERE id = :id';
         $params = [':id' => $id];
-        $result = $this->db->single($query, $params);
+        $result = $this->db->execute($query, $params)->fetch();
         return $result;
     }
 
@@ -78,3 +77,4 @@ class TaskManager {
         return $tasks;
     }
 }
+?>
