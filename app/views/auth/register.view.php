@@ -18,6 +18,7 @@
             </div>
             <input type="submit" value="Register" class="w-full px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
         </form>
+        <a href="/login">Login</a>
     </div>
 </body>
 <?php require "../app/views/components/footer.php" ?>
