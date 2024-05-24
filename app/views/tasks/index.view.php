@@ -15,7 +15,10 @@ require "../app/views/components/navbar.php";
 <form action="/logout" method="POST">
   <button class="logout-button">Logout</button>
 </form>
-
+<form action="/search" method="POST" class="flex justify-center items-center  rounded-md p-2 mx-auto w-1/4 ">
+  <input type="text" name="title" placeholder="Search tasks..." class="border-2 border-gray-300 rounded-md p-2 flex-grow mr-2">
+  <button type="submit" class="border-2 border-gray-300 rounded-md p-2">Search</button>
+</form>
 
 <div class="container mt-8 mx-auto px-4"> <!-- Added mx-auto for horizontal centering and px-4 for horizontal padding -->
   <img src="../public/shit.png" alt="mr poopie" width="600" height="600">
