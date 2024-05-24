@@ -1,16 +1,14 @@
-<div class="flex">
-  <nav class="bg-gray-800 py-4 w-64 min-h-screen flex flex-col justify-between">
-    <div class="px-4 flex flex-col h-full justify-between">
-      <ul class="space-y-2 flex flex-col h-full justify-between">
-        <li>
-          <a href="/" class="text-white hover:text-gray-300">Home</a>
-        </li>
-        <li>
-          <a href="/create" class="text-white hover:text-gray-300">Create Task</a>
-        </li>
-        <li>
-          <a href="/calander" class="text-white hover:text-gray-300">Calendar</a>
-        </li>
-      </ul>
+<div class="flex flex-col mb-20">
+  <nav class="bg-gray-800 py-4 w-full fixed top-0 z-50">
+    <div class="px-4 flex justify-between items-center h-full">
+      <div class="flex justify-between flex-grow">
+        <a href="/" class="text-white hover:text-gray-300 flex-grow text-center">Home</a>
+        <a href="/create" class="text-white hover:text-gray-300 flex-grow text-center">Create Task</a>
+        <a href="/calander" class="text-white hover:text-gray-300 flex-grow text-center">Calendar</a>
+      </div>
+      <form action="/logout" method="POST" class="ml-4">
+        <button class="text-white hover:text-gray-300">Logout</button>
+      </form>
     </div>
   </nav>
+</div>
