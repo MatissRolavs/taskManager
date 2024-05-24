@@ -5,17 +5,27 @@ require_once '../app/models/taskList.php';
 // Instantiate the TaskManager
 $taskManager = new TaskManager();
 
-// Get all tasks
-$tasks = $taskManager->getAll();
+// Check if the form was submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['title'])) {
+    // Get the title from the POST request
+    $title = $_POST['title'];
+
+    // Get tasks by title
+    $tasks = $taskManager->searchTasks($title);
+} else {
+    // Get all tasks
+    $tasks = $taskManager->getAll();
+}
 
 // Include the head and navbar components
 require "../app/views/components/head.php";
 require "../app/views/components/navbar.php";
 ?>
-<form action="/logout" method="POST">
+
+<form action="/" method="POST">
   <button class="logout-button">Logout</button>
 </form>
-<form action="/search" method="POST" class="flex justify-center items-center  rounded-md p-2 mx-auto w-1/4 ">
+<form action="/" method="POST" class="flex justify-center items-center rounded-md p-2 mx-auto w-1/4">
   <input type="text" name="title" placeholder="Search tasks..." class="border-2 border-gray-300 rounded-md p-2 flex-grow mr-2">
   <button type="submit" class="border-2 border-gray-300 rounded-md p-2">Search</button>
 </form>
@@ -27,9 +37,9 @@ require "../app/views/components/navbar.php";
     <?php foreach ($tasks as $task) { ?>
       <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4">
         <div class="task-item border border-gray-300 rounded-md p-4 flex flex-col justify-between" style="background-color: <?= $task['completed'] ? 'green' : 'red'; ?>">
-          <h2>Name: <?= $task['title'] ?></h2>
-          <p>Description: <?= $task['description'] ?></p>
-          <p>Due Date: <?= $task['due'] ?></p>
+          <h2>Name: <?= htmlspecialchars($task['title']) ?></h2>
+          <p>Description: <?= htmlspecialchars($task['description']) ?></p>
+          <p>Due Date: <?= htmlspecialchars($task['due']) ?></p>
           <div class="button-group mt-2 flex justify-between">
             <a href="/show?id=<?= $task['id'] ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block w-20 text-center">Show</a>
             <input type="checkbox" id="checkbox<?= $task['id'] ?>" name="id" value="<?= $task['id'] ?>" <?= $task['completed'] ? 'checked' : '' ?> class="form-checkbox h-5 w-5 text-green-500" onchange="updateTask(this, <?= $task['id'] ?>)">

@@ -85,6 +85,12 @@ class TaskManager {
 
         return $this->db->execute($query, $params);
     }
+    public function searchTasks($title){
+        $query = 'SELECT * FROM tasks WHERE title LIKE :title';
+        $params = [':title' => '%' . $title . '%'];
+        return $this->db->execute($query, $params)->fetchAll();
+    }
+    
     
 }
 ?>
