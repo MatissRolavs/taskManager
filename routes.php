@@ -13,5 +13,7 @@ return [
     "/show" => "../app/controllers/tasks/show.php",
     "/calander" => "../app/controllers/tasks/calander.php",
     "/updateTask" => "../app/controllers/tasks/updateTask.php",
+    "/search" => "../app/controllers/tasks/search.php",
+
 ];
 ?>
