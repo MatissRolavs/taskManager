@@ -1,8 +1,10 @@
+
+
 <?php require "../app/views/components/head.php" ?>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen overflow-hidden">
     <div class="flex-grow flex items-center justify-center">
         <div class="p-8 rounded shadow-md w-80">
-            <h1 class="text-2xl font-bold mb-8 text-center">Register</h1>
+        <h1 class="text-2xl font-bold mb-8 text-center">Register</h1>
             <form method="POST">
                 <div class="mb-5">
                     <label for="username" class="block mb-2 text-sm">Username:</label>
@@ -20,5 +22,4 @@
             <a href="/login">Login</a>
         </div>
     </div>
-    <?php require "../app/views/components/footer.php" ?>
 </body>
