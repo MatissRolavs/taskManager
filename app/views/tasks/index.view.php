@@ -13,6 +13,10 @@ require "../app/views/components/head.php";
 require "../app/views/components/navbar.php";
 ?>
 
+<form action="/search" method="POST" class="flex justify-center items-center  rounded-md p-2 mx-auto w-1/4 ">
+  <input type="text" name="title" placeholder="Search tasks..." class="border-2 border-gray-300 rounded-md p-2 flex-grow mr-2">
+  <button type="submit" class="border-2 border-gray-300 rounded-md p-2">Search</button>
+</form>
 
 <div class="container mt-8 mx-auto px-4"> <!-- Added mx-auto for horizontal centering and px-4 for horizontal padding -->
   <!-- <img src="../public/shit.png" alt="mr poopie" width="600" height="600"> -->
@@ -21,7 +25,7 @@ require "../app/views/components/navbar.php";
     <?php foreach ($tasks as $task) { ?>
       <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4">
         <div class="task-item border border-gray-300 rounded-md p-4 flex flex-col justify-between" style="background-color: <?= $task['completed'] ? 'green' : 'red'; ?>">
-          <h2>Name: <?= $task['title'] ?></h2>
+          <h2>Title: <?= $task['title'] ?></h2>
           <p>Description: <?= $task['description'] ?></p>
           <p>Due Date: <?= $task['due'] ?></p>
           <div class="button-group mt-2 flex justify-between">
