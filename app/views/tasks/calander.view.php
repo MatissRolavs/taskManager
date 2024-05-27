@@ -35,6 +35,21 @@
             font-weight: bold; /* bold text for better readability */
             color: #fff; /* white text color */
         }
+        .task-details {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .task:hover .task-details {
+            display: block;
+        }
         .completed {
             background-color: rgba(40, 167, 69, 0.9); /* dark green background */
         }
@@ -79,8 +94,8 @@
             <a href="?month=<?= $nextMonth ?>&year=<?= $nextYear ?>" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next Month &gt;&gt;</a>
         </div>
         <table class="calendar">
+            <?= $calendarHtml ?> <!-- This will render the calendar -->
         </table>
-        <?= $calendarHtml ?> <!-- This will render the calendar -->
     </div>
 </body>
 </html>
