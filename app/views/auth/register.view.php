@@ -11,12 +11,12 @@
                     <input type="text" id="username" name="username" required class="w-full px-3 py-2 border rounded-md focus:outline-none">
                 </div>
                 <div class="mb-5">
-                    <?php if (isset($errors["password"])){?>
-                        <p><?= $errors["password"] ?></p>
-                    <?php } ?>
                     <label for="password" class="block mb-2 text-sm">Password:</label>
                     <input type="password" id="password" name="password" required class="w-full px-3 py-2 border rounded-md focus:outline-none">
                 </div>
+                <?php if (isset($errors["password"])) { ?>
+                        <p> <?= $errors["password"] ?></p>
+                <?php } ?>
                 <input type="submit" value="Register" class="w-full px-3 py-2 rounded-md">
             </form>
             <a href="/login">Login</a>
