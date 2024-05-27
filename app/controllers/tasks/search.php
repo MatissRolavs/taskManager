@@ -80,3 +80,4 @@ function updateTask(checkbox, taskId) {
   });
 }
 </script>
+<?php require "../app/views/components/footer.php" ?>
