@@ -3,6 +3,8 @@ guest();
 require "../app/models/User.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    $errors = [];
 
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -15,6 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["userID"] = $result["id"];
         $_SESSION["username"] = $result["username"];
         header("Location: /");
+    }
+    else{
+        $errors["login"] = "Username or password is incorrect";
     }
 }
 require "../app/views/auth/login.view.php";

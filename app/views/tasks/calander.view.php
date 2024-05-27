@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .calendar {
             border-collapse: collapse;
@@ -49,8 +50,13 @@
         }
     </style>
 </head>
+<?php require "../app/views/components/navbar.php" ?>
 <body>
-    <h2>Task Calendar</h2>
+
+<div class="text-center text-2xl">
+  <h2>Task Calendar</h2>
+</div>
+
     <div class="nav">
         <a href="?month=<?= $prevMonth ?>&year=<?= $prevYear ?>">&lt;&lt; Previous Month</a>
         <a href="?month=<?= $nextMonth ?>&year=<?= $nextYear ?>">Next Month &gt;&gt;</a>
@@ -58,9 +64,6 @@
     <?= $calendarHtml ?> <!-- This will render the calendar -->
     
     <!-- Rest of your HTML content -->
-    <div class="container mt-8 mx-auto px-4">
-        <h1 class="mb-8 text-4xl text-center">Task list</h1>
-        <!-- Your task list content -->
-    </div>
+    
 </body>
 </html>

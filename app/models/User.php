@@ -1,9 +1,7 @@
 <?php
 
-use App\Validators\Validator;
-
 require "../app/core/Database.php";
-require "../app/core/Validator.php";
+
 
 class User {
     
@@ -17,10 +15,8 @@ class User {
 
     public function register($username, $password) {
         
-        if (!Validator::string($password, min:6)) {
-            $errors["password"] = "Password must be atleast 6 characters";
-        }
-        if(empty($errors)){
+        
+        
             $query = "INSERT INTO users (username, password) VALUES (:username, :password)";
             $params = [":username" => $username,
                     ":password" => password_hash($password, PASSWORD_BCRYPT)];
@@ -28,18 +24,16 @@ class User {
             if($result) {
                 return true;
             }
-            else {
-                return false;
-            }
-        }
+        
     }
 
     public function login($username, $password) {
+        $errors =[];
         $query = "SELECT * FROM users WHERE username = :username";
         $params = [":username" => $username];
         $result = $this->db->execute($query,$params)->fetch();
         if(!$result){
-            echo "this username doesnt exist";
+            $errors["login"] = "this username doesnt exist";
         }
         else{
             $hashed_password = $result["password"];
