@@ -6,10 +6,21 @@
         <a href="/create" class="text-white hover:text-gray-300 flex-grow text-center">Create Task</a>
         <a href="/calander" class="text-white hover:text-gray-300 flex-grow text-center">Calendar</a>
       </div>
-      <p class="text-white">👤 <?= $_SESSION["username"] ?></p>
-      <form action="/logout" method="POST" class="ml-4">
-        <button class="text-white hover:text-gray-300">Logout</button>
-      </form>
+      <div class="relative">
+        <p class="text-white cursor-pointer" onclick="toggleDropdown()">👤 <?= $_SESSION["username"] ?></p>
+        <div id="dropdownMenu" class="hidden absolute bg-white border border-gray-300 mt-2 py-2 w-24 right-0 z-10">
+          <form action="/logout" method="POST">
+            <button class="text-gray-800 hover:text-gray-600 block w-full text-left px-4 py-2" type="submit">Logout</button>
+          </form>
+        </div>
+      </div>
     </div>
   </nav>
 </div>
+
+<script>
+  function toggleDropdown() {
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    dropdownMenu.classList.toggle('hidden');
+  }
+</script>
