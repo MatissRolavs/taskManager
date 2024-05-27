@@ -14,6 +14,6 @@ return [
     "/calander" => "../app/controllers/tasks/calander.php",
     "/updateTask" => "../app/controllers/tasks/updateTask.php",
     "/search" => "../app/controllers/tasks/search.php",
-
+    "/quote" => "../app/controllers/tasks/quote.php",
 ];
 ?>

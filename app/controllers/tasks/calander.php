@@ -128,6 +128,7 @@ if ($nextMonth == 13) {
 $prevMonthString = sprintf('%02d', $prevMonth);
 $nextMonthString = sprintf('%02d', $nextMonth);
 
+// Generate the calendar HTML with tasks
 $calendarHtml = build_calendar($month, $year, $tasks);
 
 // Include the view file
