@@ -14,15 +14,14 @@ require "../app/views/components/head.php";
 require "../app/views/components/navbar.php";
 ?>
 
-<form action="/search" method="POST" class="flex justify-center items-center  rounded-md p-2 mx-auto w-1/4 ">
+<form action="/search" method="POST" class="flex justify-center items-center rounded-md p-2 mx-auto w-1/4">
   <input type="text" name="title" placeholder="Search tasks..." class="border-2 border-gray-300 rounded-md p-2 flex-grow mr-2">
   <button type="submit" class="border-2 border-gray-300 rounded-md p-2">Search</button>
 </form>
 
-<div class="container mt-8 mx-auto px-4"> <!-- Added mx-auto for horizontal centering and px-4 for horizontal padding -->
-  <!-- <img src="../public/shit.png" alt="mr poopie" width="600" height="600"> -->
-  <h1 class="mb-8 text-4xl text-center">Task list</h1> <!-- Added text-center for centering -->
-  <div class="flex flex-wrap -mx-2"> <!-- Added flex-wrap to allow containers to wrap and -mx-2 to add horizontal margin between containers -->
+<div class="container mt-8 mx-auto px-4">
+  <h1 class="mb-8 text-4xl text-center">Task list</h1>
+  <div class="flex flex-wrap -mx-2">
     <?php foreach ($tasks as $task) { ?>
       <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4">
         <div class="task-item border border-gray-300 rounded-md p-4 flex flex-col justify-between" style="background-color: <?= $task['completed'] ? 'green' : 'red'; ?>">
@@ -31,9 +30,9 @@ require "../app/views/components/navbar.php";
           <p>Created By: <?php $result = $user->getUserById($task['user_id']); echo $result["username"]; ?></p>
           <div class="button-group mt-2 flex justify-between">
             <a href="/show?id=<?= $task['id'] ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block w-20 text-center">Show</a>
-            <input type="checkbox" id="checkbox<?= $task['id'] ?>" name="id" value="<?= $task['id'] ?>" <?= $task['completed'] ? 'checked' : '' ?> class="form-checkbox h-5 w-5 text-green-500" onchange="updateTask(this, <?= $task['id'] ?>)">
-            <span id="status<?= $task['id'] ?>"><?= $task['completed'] ? 'Completed' : '' ?></span>
-            
+            <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-block w-full text-center" onclick="toggleCompletion(<?= $task['id'] ?>, <?= $task['completed'] ?>)">
+              <?= $task['completed'] ? 'Completed' : 'Not Completed' ?>
+            </button>
           </div>
         </div>
       </div>
@@ -42,26 +41,21 @@ require "../app/views/components/navbar.php";
 </div>
 
 <script>
-function updateTask(checkbox, taskId) {
-  let taskItem = checkbox.closest('.task-item');
-  let completed = checkbox.checked ? 1 : 0;
-  taskItem.style.backgroundColor = checkbox.checked ? 'green' : '#FF0800';
-
-  // Update the status text
-  let statusText = document.getElementById('status' + taskId);
-  statusText.textContent = checkbox.checked ? 'Completed' : '';
-
+function toggleCompletion(taskId, completed) {
+  let newStatus = completed ? 0 : 1;
   fetch('/updateTask', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ id: taskId, completed: completed }),
+    body: JSON.stringify({ id: taskId, completed: newStatus }),
   })
   .then(response => response.json())
   .then(data => {
     if (data.success) {
       console.log('Task updated successfully');
+      // Reload the page to reflect the changes
+      location.reload();
     } else {
       console.error('Failed to update task');
     }
