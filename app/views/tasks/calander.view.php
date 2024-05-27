@@ -58,9 +58,6 @@
     <?= $calendarHtml ?> <!-- This will render the calendar -->
     
     <!-- Rest of your HTML content -->
-    <div class="container mt-8 mx-auto px-4">
-        <h1 class="mb-8 text-4xl text-center">Task list</h1>
-        <!-- Your task list content -->
-    </div>
+    
 </body>
 </html>
