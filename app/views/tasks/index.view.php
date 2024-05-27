@@ -27,14 +27,12 @@ require "../app/views/components/navbar.php";
         <div class="task-item border border-gray-300 rounded-md p-4 flex flex-col justify-between" style="background-color: <?= $task['completed'] ? 'green' : 'red'; ?>">
           <h2>Title: <?= $task['title'] ?></h2>
           <p>Description: <?= $task['description'] ?></p>
-          <p>Due Date: <?= $task['due'] ?></p>
+          <p>Due Date: <?= date('Y-m-d H:i', strtotime($task['due'])) ?></p> <!-- Modified line for due date -->
           <div class="button-group mt-2 flex justify-between">
             <a href="/show?id=<?= $task['id'] ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block w-20 text-center">Show</a>
             <input type="checkbox" id="checkbox<?= $task['id'] ?>" name="id" value="<?= $task['id'] ?>" <?= $task['completed'] ? 'checked' : '' ?> class="form-checkbox h-5 w-5 text-green-500" onchange="updateTask(this, <?= $task['id'] ?>)">
             <span id="status<?= $task['id'] ?>"><?= $task['completed'] ? 'Completed' : '' ?></span>
-            <form method="POST" action="/delete" class="button-form inline">
-              <button name="id" value="<?= $task['id'] ?>" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-block w-20 text-center">Delete</button>
-            </form>
+            
           </div>
         </div>
       </div>
