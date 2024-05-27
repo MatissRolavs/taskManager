@@ -6,6 +6,7 @@
         <a href="/create" class="text-white hover:text-gray-300 flex-grow text-center">Create Task</a>
         <a href="/calander" class="text-white hover:text-gray-300 flex-grow text-center">Calendar</a>
       </div>
+      <p class="text-white">👤 <?= $_SESSION["username"] ?></p>
       <form action="/logout" method="POST" class="ml-4">
         <button class="text-white hover:text-gray-300">Logout</button>
       </form>

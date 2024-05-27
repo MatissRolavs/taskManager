@@ -5,7 +5,7 @@
     <form action="/logout" method="POST">
         <button class="logout-button">Logout</button>
     </form>
-  <?php require "../app/views/components/footer.php"; ?>
+  <?php require "../app/views/components/footer.php" ?>
 </div>
 
 

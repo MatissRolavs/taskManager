@@ -14,6 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // For demonstration purposes, assuming a default user ID (replace with your logic)
     $user_id = $_SESSION["userID"]; // You need to replace this with the actual user ID
 
+    // Check if due date is in the past
+    if (new DateTime($due) < new DateTime()) {
+        echo "Due date cannot be in the past.";
+        exit();
+    }
+
     // Create a new TaskManager instance
     $taskManager = new TaskManager();
 

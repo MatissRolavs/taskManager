@@ -1,5 +1,7 @@
 <?php
 guest();
+use App\Validators\Validator;
+require "../app/core/Validator.php";
 require "../app/models/User.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -10,12 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = new User();
 
     $result = $user->register($username,$password);
-
-    if ($result) {
+    if (!Validator::string($password, min:6)) {
+        $errors["password"] = "Password must be atleast 6 characters";
+    }
+    if (empty($errors)) {
         header("Location: /login");
         die();
-    } else {
-        
     }
 }
 require "../app/views/auth/register.view.php";

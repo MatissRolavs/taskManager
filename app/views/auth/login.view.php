@@ -12,6 +12,9 @@
                         <label for="password" class="block mb-2 text-sm">Password</label>
                         <input type="password" name="password" id="password" class="w-full px-3 py-2 border rounded-md focus:outline-none" required>
                     </div>
+                    <?php if (isset($errors["login"])) { ?>
+                        <p> <?= $errors["login"] ?></p>
+                    <?php } ?>
                     <button type="submit" class="w-full px-3 py-2 rounded-md">Login</button>
                 </form>
                 <a href="/register">Register</a>

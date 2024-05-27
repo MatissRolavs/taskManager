@@ -70,6 +70,7 @@
         }
     </style>
 </head>
+<?php require "../app/views/components/navbar.php" ?>
 <body>
     <!-- Navbar -->
     <div class="flex flex-col mb-20">
