@@ -12,6 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $due = $_POST["due"];
     $completed = isset($_POST["completed"]) ? 1 : 0;
 
+    // Check if due date is in the past
+    if (new DateTime($due) < new DateTime()) {
+        echo "Due date cannot be in the past.";
+        exit();
+    }
+
     // Create TaskManager instance
     $taskManager = new TaskManager();
 
@@ -26,6 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ?>
+
+
+
 
 <?php
 // Include the TaskManager class

@@ -31,7 +31,11 @@ require "../app/views/components/navbar.php";
           <div class="button-group mt-2 flex justify-between">
             <a href="/show?id=<?= $task['id'] ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block w-20 text-center">Show</a>
             <input type="checkbox" id="checkbox<?= $task['id'] ?>" name="id" value="<?= $task['id'] ?>" <?= $task['completed'] ? 'checked' : '' ?> class="form-checkbox h-5 w-5 text-green-500" onchange="updateTask(this, <?= $task['id'] ?>)">
+<<<<<<< HEAD
             <span id="status<?= $task['id'] ?>"><?= $task['completed'] ? 'Completed' : 'Not completed' ?></span>
+=======
+            <span id="status<?= $task['id'] ?>"><?= $task['completed'] ? 'Completed' : '' ?></span>
+>>>>>>> 50e3f3da5ba4bc8ccb5252c0e1e09dab31ba8477
             <form method="POST" action="/delete" class="button-form inline">
               <button name="id" value="<?= $task['id'] ?>" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-block w-20 text-center">Delete</button>
             </form>

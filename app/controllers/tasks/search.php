@@ -169,5 +169,3 @@ function toggleCheckAll() {
   document.getElementById('checkAllButton').textContent = allChecked ? 'Uncheck All' : 'Check All';
 }
 </script>
-
-<?php require "../app/views/components/footer.php" ?>
