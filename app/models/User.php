@@ -1,6 +1,6 @@
 <?php
 
-require "../app/core/Database.php";
+require_once "../app/core/Database.php";
 
 
 class User {
@@ -43,6 +43,12 @@ class User {
                 return false;
             }
         }
+    }
+    public function getUserById($id){
+        $query = 'SELECT * FROM users WHERE id = :id';
+        $params = [':id' => $id];
+        $result = $this->db->execute($query, $params)->fetch();
+        return $result;
     }
 }
 ?>

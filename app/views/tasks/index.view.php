@@ -1,10 +1,11 @@
 <?php
 // Include the TaskManager class
 require_once '../app/models/taskList.php';
+require_once "../app/models/User.php";
 
 // Instantiate the TaskManager
 $taskManager = new TaskManager();
-
+$user= new User();
 // Get all tasks
 $tasks = $taskManager->getAll();
 
@@ -28,6 +29,7 @@ require "../app/views/components/navbar.php";
           <h2>Title: <?= $task['title'] ?></h2>
           <p>Description: <?= $task['description'] ?></p>
           <p>Due Date: <?= $task['due'] ?></p>
+          <p>Created By: <?php $result = $user->getUserById($task['user_id']); echo $result["username"]; ?></p>
           <div class="button-group mt-2 flex justify-between">
             <a href="/show?id=<?= $task['id'] ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block w-20 text-center">Show</a>
             <input type="checkbox" id="checkbox<?= $task['id'] ?>" name="id" value="<?= $task['id'] ?>" <?= $task['completed'] ? 'checked' : '' ?> class="form-checkbox h-5 w-5 text-green-500" onchange="updateTask(this, <?= $task['id'] ?>)">
