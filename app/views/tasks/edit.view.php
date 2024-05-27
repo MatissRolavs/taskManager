@@ -1,6 +1,7 @@
 <div class="container mt-8">
-  <div class="task-list">
-    <h1>Edit Task</h1>
+ <div class="flex justify-center items-center h-screen">
+  <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
+    <h1 class="text-2xl font-semibold mb-4">Edit Task</h1>
     <form method="POST" action="/edit" class="task-form">
       <input type="hidden" name="id" value="<?= $task['id'] ?>">
       <label>Title:</label>
@@ -16,6 +17,7 @@
     </form>
   </div>
 </div>
+
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
