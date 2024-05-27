@@ -26,7 +26,7 @@ require "../app/views/components/navbar.php";
       <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4">
         <div class="task-item border border-gray-300 rounded-md p-4 flex flex-col justify-between" style="background-color: <?= $task['completed'] ? 'green' : 'red'; ?>">
           <h2>Title: <?= $task['title'] ?></h2>
-          <p>Due Date: <?= $task['due'] ?></p>
+          <p>Due Date: <?= date('Y-m-d H:i', strtotime($task['due'])) ?></p>
           <p>Created By: <?php $result = $user->getUserById($task['user_id']); echo $result["username"]; ?></p>
           <div class="button-group mt-2 flex justify-between">
             <a href="/show?id=<?= $task['id'] ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block w-20 text-center">Show</a>
