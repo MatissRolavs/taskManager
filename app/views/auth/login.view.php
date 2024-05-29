@@ -26,6 +26,7 @@
             </form>
             <a href="/register" class="text-blue-500 hover:underline">Register</a>
         </div>
+        
     </div>
 </body>
 </html>
