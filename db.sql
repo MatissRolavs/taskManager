@@ -9,6 +9,7 @@ CREATE TABLE tasks (
 	due DATETIME NOT NULL,
 	completed INT NOT NULL,
 	user_id INT NOT NULL,
+	priority INT NOT NULL,
 	FOREIGN KEY (user_id) REFERENCES users(id)
 );
 

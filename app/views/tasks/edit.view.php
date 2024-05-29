@@ -13,6 +13,17 @@
       
       <label>Due Date:</label>
       <input type="datetime-local" id="due" name="due" value="<?= $task['due'] ?>" required class="border border-gray-300 rounded-md px-3 py-2 mb-2"><br> 
+
+      <div>
+        <label for="priority" class="block font-medium">Priority:</label>
+        <select id="priority" name="priority" required class="border border-gray-300 rounded-md px-3 py-2 w-full">
+          <option value="1">⭐</option>
+          <option value="2">⭐⭐</option>
+          <option value="3">⭐⭐⭐</option>
+          <option value="4">⭐⭐⭐⭐</option>
+          <option value="5">⭐⭐⭐⭐⭐</option>
+        </select>
+      </div>
       
       <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Update Task</button>
     </form>

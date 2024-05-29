@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST["description"];
     $due = $_POST["due"];
     $completed = 0;
+    $priority = $_POST["priority"];
 
     // For demonstration purposes, assuming a default user ID (replace with your logic)
     $user_id = $_SESSION["userID"]; // You need to replace this with the actual user ID
@@ -24,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $taskManager = new TaskManager();
 
     // Call the create method to add the task
-    if ($taskManager->create($title, $description, $due, $completed, $user_id)) {
+    if ($taskManager->create($title, $description, $due, $completed,$priority, $user_id)) {
         // Redirect to index view
         header("Location: /");
         exit();

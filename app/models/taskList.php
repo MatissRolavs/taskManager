@@ -11,13 +11,14 @@ class TaskManager {
     }
 
     // Create task
-    public function create($title, $description, $due, $completed, $user_id){
-        $query = 'INSERT INTO tasks (title, description, due, completed, user_id) VALUES (:title, :description, :due, :completed, :user_id)';
+    public function create($title, $description, $due, $completed, $priority, $user_id){
+        $query = 'INSERT INTO tasks (title, description, due, completed, priority, user_id) VALUES (:title, :description, :due, :completed,:priority, :user_id)';
         $params= [
             ':title' => $title,
             ':description' => $description,
             ':due' => $due,
             ':completed' => $completed,
+            ':priority' => $priority,
             ':user_id' => $user_id
         ];
 
@@ -43,13 +44,14 @@ class TaskManager {
     }
 
     // Edit task
-    public function edit($id, $title, $description, $due, $completed){
-        $query = 'UPDATE tasks SET title = :title, description = :description, due = :due, completed = :completed WHERE id = :id';
+    public function edit($id, $title, $description, $due, $priority, $completed){
+        $query = 'UPDATE tasks SET title = :title, description = :description, due = :due,priority=:priority, completed = :completed WHERE id = :id';
         $params= [
             ':id' => $id,
             ':title' => $title,
             ':description' => $description,
             ':due' => $due,
+            ':priority' => $priority,
             ':completed' => $completed
         ];
 

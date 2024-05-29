@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $title = $_POST["title"];
     $description = $_POST["description"];
     $due = $_POST["due"];
+    $priority = $_POST["priority"];
     $completed = isset($_POST["completed"]) ? 1 : 0;
 
     // Check if due date is in the past
@@ -22,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $taskManager = new TaskManager();
 
     // Call edit method to update task
-    if ($taskManager->edit($task_id, $title, $description, $due, $completed)) {
+    if ($taskManager->edit($task_id, $title, $description, $due,$priority, $completed)) {
         // Redirect to task list page
         header("Location: /");
         exit();
