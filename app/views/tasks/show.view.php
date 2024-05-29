@@ -20,4 +20,4 @@
   </div>
 </div>
 
-<?php require "../app/views/components/footer.php"; ?>
+<?php require "../app/views/components/footer.php" ?>
