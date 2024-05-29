@@ -9,6 +9,22 @@
       <h2 class="text-xl font-medium"><?= $task['title'] ?></h2>
       <p class="mt-2"><span class="font-medium">Description:</span> <?= $task['description'] ?></p>
       <p class="mt-2"><span class="font-medium">Due Date:</span> <?= date('Y-m-d H:i', strtotime($task['due'])) ?></p>
+      <p>Priority: <?php if($task['priority']== 1){
+            echo "⭐";
+          } 
+          if($task['priority']== 2){
+            echo "⭐⭐";
+          }
+          if($task['priority']== 3){
+            echo "⭐⭐⭐";
+          }
+          if($task['priority']== 4){
+            echo "⭐⭐⭐⭐";
+          }
+          if($task['priority']== 5){
+            echo "⭐⭐⭐⭐⭐";
+          }
+          ;?></p>
     
       <div class="mt-4 flex justify-between">
         <a href="/edit?id=<?= $task['id'] ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
