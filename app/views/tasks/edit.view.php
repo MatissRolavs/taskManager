@@ -34,3 +34,4 @@
     dueInput.min = `${year}-${month}-${day}T${hours}:${minutes}`;
   });
 </script>
+<?php require "../app/views/components/footer.php" ?>
