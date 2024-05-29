@@ -1,6 +1,7 @@
 <?php require "../app/views/components/head.php" ?>
 <?php require "../app/views/components/navbar.php" ?>
 
+<link rel="stylesheet" href="style.css"> 
 <div class="flex justify-center items-center h-screen">
   <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
     <h1 class="text-2xl font-semibold mb-4">Create Task</h1>
