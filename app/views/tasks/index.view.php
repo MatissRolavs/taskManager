@@ -24,7 +24,7 @@ require "../app/views/components/navbar.php";
   <div class="flex flex-wrap -mx-2">
     <?php foreach ($tasks as $task) { ?>
       <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4">
-        <div class="task-item border border-gray-300 rounded-md p-4 flex flex-col justify-between" style="background-color: <?= $task['completed'] ? 'green' : 'red'; ?>" data-task-id="<?= $task['id'] ?>">
+        <div class="task-item border border-black border-2 rounded-md p-4 flex flex-col justify-between" style="background-color: <?= $task['completed'] ? 'green' : 'red'; ?>" data-task-id="<?= $task['id'] ?>">
           <h2>Title: <?= $task['title'] ?></h2>
           <p>Due Date: <?= date('Y-m-d H:i', strtotime($task['due'])) ?></p>
           <p>Created By: <?php $result = $user->getUserById($task['user_id']); echo $result["username"]; ?></p>
@@ -40,45 +40,6 @@ require "../app/views/components/navbar.php";
   </div>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.toggle-completion').forEach(function(button) {
-    button.addEventListener('click', function(event) {
-      event.preventDefault(); // Prevent the default form submission
-      const taskId = this.getAttribute('data-task-id');
-      const completed = this.getAttribute('data-completed') === '1';
-      toggleCompletion(taskId, completed);
-    });
-  });
-});
-
-function toggleCompletion(taskId, completed) {
-  let newStatus = completed ? 0 : 1;
-  fetch('/updateTask', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ id: taskId, completed: newStatus }),
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.success) {
-      console.log('Task updated successfully');
-      // Toggle the button text and background color
-      const button = document.querySelector(`.toggle-completion[data-task-id="${taskId}"]`);
-      const taskItem = document.querySelector(`.task-item[data-task-id="${taskId}"]`);
-      button.textContent = newStatus ? 'Completed' : 'Not Completed';
-      button.setAttribute('data-completed', newStatus ? '1' : '0');
-      taskItem.style.backgroundColor = newStatus ? 'green' : 'red';
-    } else {
-      console.error('Failed to update task');
-    }
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-}
-</script>
-
 <?php require "../app/views/components/footer.php" ?>
+<link rel="stylesheet" href="style.css"> 
+<script src="script.js"></script>

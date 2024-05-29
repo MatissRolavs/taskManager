@@ -1,7 +1,14 @@
-<?php require "../app/views/components/head.php" ?>
-<?php require "../app/views/components/navbar.php" ?>
+<?php
+require_once '../app/models/taskList.php';
+require_once "../app/models/User.php";
 
-<link rel="stylesheet" href="style.css"> 
+$user = new User();
+
+// Include the head and navbar components
+require "../app/views/components/head.php";
+require "../app/views/components/navbar.php";
+?>
+
 <div class="flex justify-center items-center h-screen">
   <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
     <h1 class="text-2xl font-semibold mb-4">Create Task</h1>
@@ -26,19 +33,6 @@
   </div>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const dueInput = document.getElementById('due');
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-
-    // Set minimum value without seconds
-    dueInput.min = `${year}-${month}-${day}T${hours}:${minutes}`;
-  });
-</script>
-
 <?php require "../app/views/components/footer.php" ?>
+<link rel="stylesheet" href="style.css"> 
+<script src="script.js"></script>

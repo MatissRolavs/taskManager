@@ -19,18 +19,6 @@
   </div>
 </div>
 
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const dueInput = document.getElementById('due');
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-
-    // Set minimum value without seconds
-    dueInput.min = `${year}-${month}-${day}T${hours}:${minutes}`;
-  });
-</script>
+<?php require "../app/views/components/footer.php" ?>
+<link rel="stylesheet" href="style.css"> 
+<script src="script.js"></script>
