@@ -15,5 +15,6 @@ return [
     "/updateTask" => "../app/controllers/tasks/updateTask.php",
     "/search" => "../app/controllers/tasks/search.php",
     "/quote" => "../app/controllers/tasks/quote.php",
+    "/profile" => "../app/controllers/tasks/profile.php",
 ];
 ?>
