@@ -18,9 +18,4 @@
   </nav>
 </div>
 
-<script>
-  function toggleDropdown() {
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    dropdownMenu.classList.toggle('hidden');
-  }
-</script>
+<script src="scriptNav.js"></script>
