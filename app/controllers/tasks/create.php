@@ -16,21 +16,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if due date is in the past
     if (new DateTime($due) < new DateTime()) {
-        echo "Due date cannot be in the past.";
-        exit();
-    }
-
-    // Create a new TaskManager instance
-    $taskManager = new TaskManager();
-
-    // Call the create method to add the task
-    if ($taskManager->create($title, $description, $due, $completed, $user_id)) {
-        // Redirect to index view
-        header("Location: /");
-        exit();
+        $error_message = "Due date cannot be in the past.";
     } else {
-        // Handle error, if any
-        echo "Failed to create task.";
+        // Create a new TaskManager instance
+        $taskManager = new TaskManager();
+
+        // Call the create method to add the task
+        if ($taskManager->create($title, $description, $due, $completed, $user_id)) {
+            // Redirect to index view
+            header("Location: /");
+            exit();
+        } else {
+            // Handle error, if any
+            $error_message = "Failed to create task.";
+        }
     }
 }
 
