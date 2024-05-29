@@ -10,16 +10,16 @@
       <p class="mt-2"><span class="font-medium">Description:</span> <?= $task['description'] ?></p>
       <p class="mt-2"><span class="font-medium">Due Date:</span> <?= date('Y-m-d H:i', strtotime($task['due'])) ?></p>
       <p>Priority: <?php if($task['priority']== 1){
-            echo "⭐";
+            echo "⭐★★★★";
           } 
           if($task['priority']== 2){
-            echo "⭐⭐";
+            echo "⭐⭐★★★";
           }
           if($task['priority']== 3){
-            echo "⭐⭐⭐";
+            echo "⭐⭐⭐★★";
           }
           if($task['priority']== 4){
-            echo "⭐⭐⭐⭐";
+            echo "⭐⭐⭐⭐★";
           }
           if($task['priority']== 5){
             echo "⭐⭐⭐⭐⭐";
