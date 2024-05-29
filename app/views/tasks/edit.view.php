@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="style.css"> 
 <div class="container mt-8">
  <div class="flex justify-center items-center h-screen">
   <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">

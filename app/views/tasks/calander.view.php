@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS file -->
 </head>
 <?php require "../app/views/components/navbar.php" ?>
-<body>
+<body class="calendar-body">
     
     <div class="container mt-24 mx-auto px-4"> <!-- Added mt-24 to push content below the navbar -->
         <h2 class="text-3xl text-center mb-6">Task Calendar</h2>
