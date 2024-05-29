@@ -37,17 +37,17 @@ require "../app/views/components/navbar.php";
           <h2>Title: <?= $task['title'] ?></h2>
           <p>Due Date: <?= $task['due'] ?></p>
           <p>Created By: <?php $result = $user->getUserById($task['user_id']); echo $result["username"]; ?></p>
-          <p>Priority: <?php if($task['priority']== 1){
-            echo "⭐";
+           <p>Priority: <?php if($task['priority']== 1){
+            echo "⭐★★★★";
           } 
           if($task['priority']== 2){
-            echo "⭐⭐";
+            echo "⭐⭐★★★";
           }
           if($task['priority']== 3){
-            echo "⭐⭐⭐";
+            echo "⭐⭐⭐★★";
           }
           if($task['priority']== 4){
-            echo "⭐⭐⭐⭐";
+            echo "⭐⭐⭐⭐★";
           }
           if($task['priority']== 5){
             echo "⭐⭐⭐⭐⭐";
