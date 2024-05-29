@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="style.css">
 <?php
 // Include the TaskManager class
 require_once '../app/models/taskList.php';
@@ -56,59 +57,6 @@ require "../app/views/components/navbar.php";
   </div>
 </div>
 
-<style>
-.transition-background {
-  transition: background-color 0.5s ease;
-}
-
-.custom-checkbox {
-  position: relative;
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-}
-
-.custom-checkbox input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 24px;
-  width: 24px;
-  background-color: #ccc;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.custom-checkbox input:checked + .checkmark {
-  background-color: #4caf50;
-}
-
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.custom-checkbox input:checked + .checkmark:after {
-  display: block;
-}
-
-.custom-checkbox .checkmark:after {
-  left: 8px;
-  top: 4px;
-  width: 8px;
-  height: 16px;
-  border: solid white;
-  border-width: 0 4px 4px 0;
-  transform: rotate(45deg);
-}
-</style>
 
 <script>
 let manuallyChecked = new Set();
