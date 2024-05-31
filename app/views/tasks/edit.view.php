@@ -33,7 +33,7 @@
 
 <?php require "../app/views/components/footer.php" ?>
 <link rel="stylesheet" href="style.css"> 
-<script src="scriptDate.js"></script>
+<script src="script.js"></script>
 
 
 
