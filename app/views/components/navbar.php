@@ -4,11 +4,12 @@
       <div class="flex justify-between flex-grow">
         <a href="/" class="text-white hover:text-gray-300 flex-grow text-center">Home</a>
         <a href="/create" class="text-white hover:text-gray-300 flex-grow text-center">Create Task</a>
-        <a href="/calander" class="text-white hover:text-gray-300 flex-grow text-center">Calendar</a>
+        <a href="/calendar" class="text-white hover:text-gray-300 flex-grow text-center">Calendar</a>
       </div>
       <div class="relative">
         <p class="text-white cursor-pointer" onclick="toggleDropdown()">👤 <?= $_SESSION["username"] ?></p>
         <div id="dropdownMenu" class="hidden absolute bg-white border border-gray-300 mt-2 py-2 w-24 right-0 z-10">
+          <a href="/profile" class="text-gray-800 hover:text-gray-600 block w-full text-left px-4 py-2">Profile</a>
           <form action="/logout" method="POST">
             <button class="text-gray-800 hover:text-gray-600 block w-full text-left px-4 py-2" type="submit">Logout</button>
           </form>
@@ -17,5 +18,6 @@
     </div>
   </nav>
 </div>
+
 
 <script src="scriptNav.js"></script>

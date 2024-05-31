@@ -5,6 +5,7 @@ return [
     "/login" => "../app/controllers/auth/login.php",
     "/logout" => "../app/controllers/auth/logout.php",
     "/login" => "../app/controllers/auth/login.php",
+    "/forgot" => "../app/controllers/auth/forgot.php",
     "/reset" => "../app/controllers/auth/resetpass.php",
     "/register" => "../app/controllers/auth/register.php",
     "/create" => "../app/controllers/tasks/create.php",
@@ -15,5 +16,6 @@ return [
     "/updateTask" => "../app/controllers/tasks/updateTask.php",
     "/search" => "../app/controllers/tasks/search.php",
     "/quote" => "../app/controllers/tasks/quote.php",
+    "/profile" => "../app/controllers/tasks/profile.php",
 ];
 ?>

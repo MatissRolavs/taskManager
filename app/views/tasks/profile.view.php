@@ -1,16 +1,9 @@
 <?php
-// Display user data
+require "../app/views/components/head.php";
+require "../app/views/components/navbar.php";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-</head>
-<body>
-    <h1>User Profile</h1>
-    <p>Username: <?php echo $userData['username']; ?></p>
-    <!-- Add more user data fields here if needed -->
-</body>
-</html>
+
+<div class="flex flex-col items-center mt-16"> <!-- Adjusted top margin with mt-16 -->
+    <h1 class="text-4xl font-bold mb-8">User Profile</h1>
+    <p class="text-center">Username: <?= $_SESSION["username"] ?></p>
+</div>

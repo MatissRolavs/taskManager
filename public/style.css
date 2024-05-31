@@ -112,9 +112,3 @@
   border-width: 0 4px 4px 0;
   transform: rotate(45deg);
 }
-.calendar-body {
-  overflow: auto; /* Allow scrolling */
-}
-body {
-  overflow: auto;
-}
