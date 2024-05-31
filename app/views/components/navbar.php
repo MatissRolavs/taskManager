@@ -4,7 +4,7 @@
       <div class="flex justify-between flex-grow">
         <a href="/" class="text-white hover:text-gray-300 flex-grow text-center">Home</a>
         <a href="/create" class="text-white hover:text-gray-300 flex-grow text-center">Create Task</a>
-        <a href="/calendar" class="text-white hover:text-gray-300 flex-grow text-center">Calendar</a>
+        <a href="/calander" class="text-white hover:text-gray-300 flex-grow text-center">Calendar</a>
       </div>
       <div class="relative">
         <p class="text-white cursor-pointer" onclick="toggleDropdown()">👤 <?= $_SESSION["username"] ?></p>

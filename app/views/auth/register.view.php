@@ -12,11 +12,11 @@
             <h1 class="text-2xl font-bold mb-8 text-center">Register</h1>
             <form method="POST">
                 <div class="mb-5 rounded-md">
-                    <label for="username" class="block mb-2 text-sm">Username:</label>
+                    <label for="username" class="block mb-2 text-sm">Username</label>
                     <input type="text" id="username" name="username" required class="w-full px-3 py-2 border rounded-md focus:outline-none">
                 </div>
                 <div class="mb-5 rounded-md">
-                    <label for="password" class="block mb-2 text-sm">Password:</label>
+                    <label for="password" class="block mb-2 text-sm">Password</label>
                     <input type="password" id="password" name="password" required class="w-full px-3 py-2 border rounded-md focus:outline-none">
                 </div>
                 <?php if (isset($errors["password"])) { ?>

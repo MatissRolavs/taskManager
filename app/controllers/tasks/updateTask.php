@@ -1,4 +1,5 @@
 <?php
+auth();
 require_once '../app/models/taskList.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

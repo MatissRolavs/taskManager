@@ -23,6 +23,7 @@ require "../app/views/components/navbar.php";
   <h1 class="mb-8 text-4xl text-center">Task list</h1>
   <div class="flex flex-wrap -mx-2">
     <?php foreach ($tasks as $task) { ?>
+      <?php if($_SESSION["userID"] == $task["user_id"]){ ?>
       <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4">
         <div class="task-item border border-black border-2 rounded-md p-4 flex flex-col justify-between" style="background-color: <?= $task['completed'] ? 'green' : 'red'; ?>" data-task-id="<?= $task['id'] ?>">
           <h2>Title: <?= $task['title'] ?></h2>
@@ -52,6 +53,7 @@ require "../app/views/components/navbar.php";
           </div>
         </div>
       </div>
+    <?php } ?>
     <?php } ?>
   </div>
 </div>

@@ -1,4 +1,5 @@
 <?php
+auth();
 require "../app/core/Database.php";
 $config = require "../config.php";
 
