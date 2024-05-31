@@ -6,19 +6,25 @@
     <title>Task Calendar</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS file -->
+    <style>
+        /* Additional styles */
+      
+    </style>
 </head>
 <?php require "../app/views/components/navbar.php" ?>
 <body>
     <!-- Navbar -->
-    <div class="container mt-24 mx-auto px-4"> <!-- Added mt-24 to push content below the navbar -->
-        <h2 class="text-3xl text-center mb-6">Task Calendar</h2>
-        <div class="nav">
-            <a href="?month=<?= $prevMonth ?>&year=<?= $prevYear ?>" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">&lt;&lt; Previous Month</a>
-            <a href="?month=<?= $nextMonth ?>&year=<?= $nextYear ?>" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next Month &gt;&gt;</a>
+    <div class="container mt-8 mx-auto px-4"> <!-- Reduced top margin for better alignment -->
+        <h2 class="text-2xl text-center mb-4">Task Calendar</h2>
+        <div class="flex justify-between mb-4">
+            <a href="?month=<?= $prevMonth ?>&year=<?= $prevYear ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">&lt;&lt; Previous Month</a>
+            <a href="?month=<?= $nextMonth ?>&year=<?= $nextYear ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next Month &gt;&gt;</a>
         </div>
-        <table class="calendar">
-            <?= $calendarHtml ?> <!-- This will render the calendar -->
-        </table>
+        <div class="overflow-x-auto">
+            <table class="min-w-full border-collapse border border-gray-200">
+                <?= $calendarHtml ?> <!-- This will render the calendar -->
+            </table>
+        </div>
     </div>
 </body>
 </html>
