@@ -26,7 +26,7 @@ require "../app/views/components/navbar.php";
       <div>
         <label for="due" class="block font-medium">Due Date:</label>
         <input type="datetime-local" id="due" name="due" required class="border border-gray-300 rounded-md px-3 py-2 w-full">
-        <span id="due-error" class="text-red-500"></span> <!-- Error message placeholder -->
+        <span id="due-error" class="text-red-500"></span> 
       </div>
       <div>
         <label for="priority" class="block font-medium">Priority:</label>
@@ -38,7 +38,7 @@ require "../app/views/components/navbar.php";
           <option value="5">⭐⭐⭐⭐⭐</option>
         </select>
       </div>
-      <div id="userContainer"> <!-- Add an ID to the container div -->
+      <div id="userContainer"> 
         <label for="assignedUser" class="block font-medium">Assigned User:</label>
         <div class="flex items-center space-x-2">
           <select id="assignedUser" name="assignedUser" class="border border-gray-300 rounded-md px-3 py-2 w-full">
