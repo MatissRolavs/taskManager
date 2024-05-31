@@ -42,6 +42,7 @@ require "../app/views/components/navbar.php";
         <label for="assignedUser" class="block font-medium">Assigned User:</label>
         <div class="flex items-center space-x-2">
           <select id="assignedUser" name="assignedUser" class="border border-gray-300 rounded-md px-3 py-2 w-full">
+            <option value="0"></option>  
             <?php foreach($users as $user) {?>
             <option value=<?= $user["id"] ?>><?= $user["username"] ?></option>
             <?php } ?>
