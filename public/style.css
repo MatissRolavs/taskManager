@@ -3,12 +3,12 @@
     width: 100%;
     background: url('/photo.jpeg') no-repeat center center;
     background-size: cover;
-    opacity: 1; /* Background image is fully visible */
+    opacity: 1;
 }
 .calendar th, .calendar td {
     border: 1px solid #ddd;
     padding: 8px;
-    background-color: rgba(255, 255, 255, 0.7); /* Slightly more transparent */
+    background-color: rgba(255, 255, 255, 0.7); 
 }
 .calendar th {
     background-color: rgba(242, 242, 242, 0.7);
@@ -18,14 +18,14 @@
     text-align: center;
     vertical-align: top;
     height: 60px;
-    position: relative; /* Added to position the image inside the cell */
+    position: relative; 
 }
 .task {
     margin: 5px;
-    padding: 10px; /* increased padding for better readability */
+    padding: 10px; 
     border-radius: 5px;
-    font-weight: bold; /* bold text for better readability */
-    color: #fff; /* white text color */
+    font-weight: bold;
+    color: #fff;
 }
 .task-details {
     display: none;
