@@ -2,7 +2,10 @@
 auth();
 
 require_once '../app/models/taskList.php';
+require_once '../app/models/User.php';
 
+$user = new User();
+$users = $user->getAll();
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get form data
@@ -23,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Create a new TaskManager instance
     $taskManager = new TaskManager();
-
+    
     // Call the create method to add the task
     if ($taskManager->create($title, $description, $due, $completed,$priority, $user_id)) {
         // Redirect to index view

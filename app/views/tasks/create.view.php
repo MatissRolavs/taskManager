@@ -38,6 +38,22 @@ require "../app/views/components/navbar.php";
           <option value="5">⭐⭐⭐⭐⭐</option>
         </select>
       </div>
+      <div id="userContainer"> <!-- Add an ID to the container div -->
+        <label for="assignedUser" class="block font-medium">Assigned User:</label>
+        <div class="flex items-center space-x-2">
+          <select id="assignedUser" name="assignedUser" class="border border-gray-300 rounded-md px-3 py-2 w-full">
+            <?php foreach($users as $user) {?>
+            <option value=<?= $user["id"] ?>><?= $user["username"] ?></option>
+            <?php } ?>
+          </select> 
+        </div>
+      </div>
+      <button type="button" id="addUserButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            +
+      </button>
+      <button type="button" id="removeUserButton" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+            -
+      </button>
       <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">Create Task</button>
     </form>
   </div>
@@ -45,4 +61,7 @@ require "../app/views/components/navbar.php";
 
 <?php require "../app/views/components/footer.php" ?>
 <link rel="stylesheet" href="style.css"> 
-<script src="scriptDate.js"></script>
+<script>
+  var usersData = <?php echo json_encode($users); ?>;
+</script>
+<script src="scriptAddButton.js"></script>

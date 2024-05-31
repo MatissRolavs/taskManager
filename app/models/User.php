@@ -50,5 +50,12 @@ class User {
         $result = $this->db->execute($query, $params)->fetch();
         return $result;
     }
+    
+    public function getAll(){
+        $query = 'SELECT * FROM users';
+        $params = [];
+        $users = $this->db->execute($query, $params)->fetchAll();
+        return $users;
+    }
 }
 ?>
