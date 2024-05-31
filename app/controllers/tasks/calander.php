@@ -1,5 +1,4 @@
 <?php
-auth();
 require "../app/core/Database.php";
 $config = require "../config.php";
 
@@ -20,7 +19,7 @@ function build_calendar($month, $year, $tasks) {
     }
 
     // Array containing names of all days in a week
-    $daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    $daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
     // First day of the month
     $firstDayOfMonth = mktime(0, 0, 0, $month, 1, $year);
@@ -34,43 +33,36 @@ function build_calendar($month, $year, $tasks) {
     // Name of the month
     $monthName = $dateComponents['month'];
 
-    // Index value 0-6 of the first day of the month
-    $dayOfWeek = $dateComponents['wday'];
-
-    // Current date
-    $dateToday = date('Y-m-d');
-
     // HTML table to display calendar
-    $calendar = "<table class='calendar'>";
-    $calendar .= "<caption>$monthName $year</caption>";
-    $calendar .= "<tr>";
+    $calendar = "<table class='calendar table-auto'>";
+    $calendar .= "<caption class='text-lg'>$monthName $year</caption>";
+    $calendar .= "<thead><tr>";
 
     // Create the calendar headers
     foreach ($daysOfWeek as $day) {
         $calendar .= "<th class='header'>$day</th>";
     }
 
-    // Create the rest of the calendar
+    $calendar .= "</tr></thead><tbody><tr>";
+
+    // Loop through all the days of the month
+    $dayOfWeek = $dateComponents['wday']; // Index value 0-6 of the first day of the month
     $currentDay = 1;
-    $calendar .= "</tr><tr>";
+    $rowOpen = false; // To keep track if <tr> tag is open or not
 
     // If the first day of the month is not Sunday, create blank cells before the first day
     if ($dayOfWeek > 0) {
-        $calendar .= "<td colspan='$dayOfWeek'> </td>";
+        $calendar .= "<td colspan='$dayOfWeek'></td>";
     }
 
-    // Loop through all the days of the month
     while ($currentDay <= $numberDays) {
-        // If it's Sunday, start a new row
-        if ($dayOfWeek == 7) {
-            $dayOfWeek = 0;
+        // Start a new row on Sundays
+        if ($dayOfWeek == 0) {
             $calendar .= "</tr><tr>";
+            $rowOpen = true;
         }
 
-        // Format the current day with leading zeros
         $currentDate = sprintf('%04d-%02d-%02d', $year, $month, $currentDay);
-
-        // Add the day to the calendar
         $calendar .= "<td class='day' rel='$currentDate'>$currentDay";
 
         // Add tasks for the current day
@@ -83,19 +75,19 @@ function build_calendar($month, $year, $tasks) {
 
         $calendar .= "</td>";
 
-        // Increment counters
+        // Move to the next day
         $currentDay++;
-        $dayOfWeek++;
+        $dayOfWeek = ($dayOfWeek + 1) % 7; // Increment and wrap around to 0 after 6
     }
 
-    // Complete the row of the last week in the month if necessary
-    if ($dayOfWeek != 7) {
-        $remainingDays = 7 - $dayOfWeek;
-        $calendar .= "<td colspan='$remainingDays'> </td>";
+    // Close any open row
+    if ($rowOpen) {
+        $remainingDays = 7 - $dayOfWeek; // Calculate remaining days to fill the last row
+        $calendar .= "<td colspan='$remainingDays'></td>";
     }
 
     $calendar .= "</tr>";
-    $calendar .= "</table>";
+    $calendar .= "</tbody></table>";
 
     return $calendar;
 }
