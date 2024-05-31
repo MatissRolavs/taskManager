@@ -6,9 +6,9 @@ require_once '../app/models/User.php';
 
 $user = new User();
 $users = $user->getAll();
-// Check if form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data
+
     $title = $_POST["title"];
     $description = $_POST["description"];
     $due = $_POST["due"];
