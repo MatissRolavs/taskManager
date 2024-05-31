@@ -43,10 +43,10 @@
     display: block;
 }
 .completed {
-    background-color: rgba(40, 167, 69, 0.9); /* dark green background */
+    background-color: rgba(40, 167, 69, 0.9); 
 }
 .not-completed {
-    background-color: rgba(220, 53, 69, 0.9); /* dark red background */
+    background-color: rgba(220, 53, 69, 0.9); 
 }
 .nav {
     text-align: center;
@@ -57,8 +57,8 @@
     top: 100%;
     left: 100%;
     transform: translate(-50%, -50%);
-    width: 100%; /* Adjust the width as needed */
-    opacity: 0.3; /* reduced opacity for better visibility of tasks */
+    width: 100%; 
+    opacity: 0.3; 
 }
 .transition-background {
     transition: background-color 0.5s ease;
@@ -113,24 +113,24 @@
   }
 
   .calendar {
-    font-size: 0.9rem; /* Adjust font size for better readability on mobile */
+    font-size: 0.9rem; 
 }
 
 .task {
-    margin-bottom: 0.5rem; /* Add space between tasks */
-    overflow: hidden; /* Ensure images don't overflow their containers */
+    margin-bottom: 0.5rem; 
+    overflow: hidden; 
 }
 
 .task img {
-    width: 100%; /* Make images fill the entire width of their containers */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Ensure images behave as block elements */
+    width: 100%; 
+    height: auto;
+    display: block;
 }
 
 .task a {
-    color: #333; /* Change task link color for better visibility */
+    color: #333;
 }
 
 .task.completed {
-    text-decoration: line-through; /* Add line-through for completed tasks */
+    text-decoration: line-through;
 }
