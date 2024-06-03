@@ -23,28 +23,13 @@ require "../app/views/components/navbar.php";
   <h1 class="mb-8 text-4xl text-center">Task list</h1>
   <div class="flex flex-wrap -mx-2">
     <?php foreach ($tasks as $task) { ?>
-      <?php if($_SESSION["userID"] == $task["user_id"]){ ?>
-      <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4">
+      <?php if($_SESSION["userID"] == $task["user_id"]) { ?>
+      <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4" style="order: <?= 6 - $task['priority'] ?>">
         <div class="task-item border border-black border-2 rounded-md p-4 flex flex-col justify-between" style="background-color: <?= $task['completed'] ? 'green' : 'red'; ?>" data-task-id="<?= $task['id'] ?>">
           <h2>Title: <?= $task['title'] ?></h2>
           <p>Due Date: <?= date('Y-m-d H:i', strtotime($task['due'])) ?></p>
           <p>Created By: <?php $result = $user->getUserById($task['user_id']); echo $result["username"]; ?></p>
-          <p>Priority: <?php if($task['priority']== 1){
-            echo "⭐★★★★";
-          } 
-          if($task['priority']== 2){
-            echo "⭐⭐★★★";
-          }
-          if($task['priority']== 3){
-            echo "⭐⭐⭐★★";
-          }
-          if($task['priority']== 4){
-            echo "⭐⭐⭐⭐★";
-          }
-          if($task['priority']== 5){
-            echo "⭐⭐⭐⭐⭐";
-          }
-          ;?></p>
+          <p>Priority: <?= str_repeat('⭐', $task['priority']) . str_repeat('★', 5 - $task['priority']) ?></p>
           <div class="button-group mt-2 flex justify-between">
             <a href="/show?id=<?= $task['id'] ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block w-20 text-center">Show</a>
             <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-block text-center toggle-completion" data-task-id="<?= $task['id'] ?>" data-completed="<?= $task['completed'] ? '1' : '0' ?>">
